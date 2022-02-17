@@ -4,6 +4,15 @@ const app = express()
 
 var port = 5001
 
+function coinFlip() {
+    let randomNum = Math.random()
+    if (randomNum < .5){
+      return "tails"
+    } else{
+      return "heads"
+    }
+  }
+
 const server = app.listen(port, () => {
     console.log(`App is running on port ${port}`)
 })
