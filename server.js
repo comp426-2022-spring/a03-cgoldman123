@@ -4,6 +4,15 @@ const app = express()
 
 var port = 5001
 
+function coinFlip() {
+    let randomNum = Math.random()
+    if (randomNum < .5){
+      return "tails"
+    } else{
+      return "heads"
+    }
+  }
+
 const server = app.listen(port, () => {
     console.log(`App is running on port ${port}`)
 })
@@ -12,6 +21,11 @@ const server = app.listen(port, () => {
 app.get('/app', (req, res)  => {
     res.status(200).end('OK. This endpoint does exist!')
 })
+
+app.get('/app/flip', (req, res) => {
+    res.status(200).json({'flip' : coinFlip()})
+})
+
 app.use(function(req, res) {
     res.status(404).send("Endpoint does not exist")
     res.type("text/plain")
