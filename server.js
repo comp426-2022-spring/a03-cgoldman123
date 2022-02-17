@@ -22,6 +22,10 @@ app.get('/app', (req, res)  => {
     res.status(200).end('OK. This endpoint does exist!')
 })
 
+app.get('/app/flip', (req, res)  => {
+    res.status(200).json( { 'flip' : coinFlip()})
+})
+
 app.get('/app/echo/:number', (req, res) => {
     res.status(200).json({ 'message': req.params.number})
 })
