@@ -75,6 +75,7 @@ app.get('/app/call/tails', (req, res)  => {
   }
   res.status(200).json({'call':'tails', 'flip':flip, 'result':result})
 })
+// making sure I committed right
 
 
 
