@@ -2,7 +2,12 @@ const express = require('express')
 const req = require('express/lib/request')
 const app = express()
 
-var port = 5001
+const args = require('minimist')(process.argv.slice(2))
+// Define allowed argument name 'port'.
+args["port"]
+// Define a const `port` using the argument from the command line. 
+// Make this const default to port 3000 if there is no argument given for `--port`.
+const port = args.port || process.env.PORT || 5000
 
 function coinFlips(flips) {
   var coinArray = new Array()
