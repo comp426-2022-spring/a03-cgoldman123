@@ -43,7 +43,7 @@ function coinFlip() {
     if (tailCount ==0) {
       return "{ heads: " + headCount + " }"
     }*/
-    return "{ tails: " + tailCount + ", heads: " + headCount + " }"
+    return "{tails:" + tailCount + ",heads:" + headCount + "}"
   }
 
 
