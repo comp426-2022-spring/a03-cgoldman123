@@ -65,7 +65,7 @@ app.get('/app/call/heads', (req, res)  => {
   }
   res.status(200).json({'call':'tails', 'flip':flip, 'result':result})
 })
-
+// test
 app.get('/app/call/tails', (req, res)  => {
   var flip = coinFlip()
   if (flip == "tails") {
