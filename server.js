@@ -68,7 +68,7 @@ app.get('/app/flip/call/heads', (req, res)  => {
   } else {
     result = "lose"
   }
-  res.status(200).json({'call':'tails', 'flip':flip, 'result':result})
+  res.status(200).json({'call':'heads', 'flip':flip, 'result':result})
 })
 // test
 app.get('/app/flip/call/tails', (req, res)  => {
