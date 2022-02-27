@@ -61,7 +61,7 @@ app.get('/app/flip', (req, res)  => {
 })
 
 
-app.get('/app/call/heads', (req, res)  => {
+app.get('/app/flip/call/heads', (req, res)  => {
   var flip = coinFlip()
   if (flip == "heads") {
     result = "win"
@@ -71,7 +71,7 @@ app.get('/app/call/heads', (req, res)  => {
   res.status(200).json({'call':'tails', 'flip':flip, 'result':result})
 })
 // test
-app.get('/app/call/tails', (req, res)  => {
+app.get('/app/flip/call/tails', (req, res)  => {
   var flip = coinFlip()
   if (flip == "tails") {
     result = "win"
@@ -92,7 +92,7 @@ app.get('/app/echo/:repeat', (req, res) => {
 app.get('/app/flips/:number', (req, res) => {
   var coinArray = coinFlips(req.params.number)
   var mySummary = countFlips(coinArray)
-  res.status(200).json({'raw': coinArray, 'summary': mySummary})
+  res.status(200).json({'raw': coinArray, "summary": mySummary})
 })
 
 
