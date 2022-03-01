@@ -1,6 +1,9 @@
 const express = require('express')
+const morgan = require('morgan')
 const req = require('express/lib/request')
 const app = express()
+const fs = require('fs')
+
 
 const args = require('minimist')(process.argv.slice(2))
 // Define allowed argument name 'port'.
@@ -8,6 +11,20 @@ args["port"]
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 3000 if there is no argument given for `--port`.
 const port = args.port || process.env.PORT || 5000
+
+
+// let logging = morgan('combined')
+// app.use(logging('common'))
+
+
+
+console.log()
+console.error()
+console.warn()
+console.debug()
+console.trace()
+
+
 
 function coinFlips(flips) {
   var coinArray = new Array()
@@ -27,6 +44,8 @@ function coinFlip() {
     }
   }
 
+  
+
   function countFlips(myArray) {
     var headCount = 0
     var tailCount = 0
@@ -43,7 +62,11 @@ function coinFlip() {
     if (tailCount ==0) {
       return "{ heads: " + headCount + " }"
     }*/
-    return "{tails:" + tailCount + ",heads:" + headCount + "}"
+    let results = {
+      tails: tailCount,
+      heads: headCount
+    }
+    return results
   }
 
 
@@ -60,7 +83,7 @@ app.get('/app/flip', (req, res)  => {
     res.status(200).json({'flip' : coinFlip()})
 })
 
-
+// need to return game as from screenshot
 app.get('/app/flip/call/heads', (req, res)  => {
   var flip = coinFlip()
   if (flip == "heads") {
